@@ -33,7 +33,7 @@ public class RegisterController {
         if(errors.hasErrors()){
             log.error("Register user form validation failed due to: " +errors.toString());
             return "register.html";
-        }
+        };
         registerService.saveUserRegister(user);
         return "redirect:/register";
     }

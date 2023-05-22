@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.hibernate.validator.constraints.br.CPF;
 
 
 @Data
@@ -17,19 +18,19 @@ public class User {
     private String email;
 
     @NotBlank(message = "Password must not be blank")
-    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$", message = "Please provide a valid password")
+    @Pattern(regexp = "^(?=.*\\d).{4,8}$", message = "Please provide a valid password")
     private String password;
 
     @NotBlank(message = "Password must not be blank")
-    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$", message = "Please provide a valid password")
+    @Pattern(regexp = "^(?=.*\\d).{4,8}$", message = "Please provide a valid password")
     private String retypePassword;
 
 
     @NotBlank(message = "Cpf must not be blank")
-    @Pattern(regexp = "([0-9]{2}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[\\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]{2})\n", message = "Please provide a valid cpf")
+    @CPF(message = "Please provide a valid cpf")
     private String cpf;
 
     @NotBlank(message = "Mobile number must not be blank")
-    @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
+    @Pattern(regexp = "\\(\\d{2,}\\) \\d{4,}\\-\\d{4}", message = "Mobile number must be 10 digits")
     private String mobileNumber;
 }
