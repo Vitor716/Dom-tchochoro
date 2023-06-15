@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RegisterController {
     private final RegisterService registerService;
+    String register= "register.html";
 
     @Autowired
     public RegisterController(RegisterService registerService){
@@ -25,16 +26,19 @@ public class RegisterController {
     @RequestMapping("/register")
     public String displayRegisterPage(Model model){
         model.addAttribute("user", new User());
-        return "register.html";
+        return register;
     }
 
-    @PostMapping("/saveUser")
-    public String saveUser(@Valid @ModelAttribute("user")User user, Errors errors){
+    @PostMapping(path ="/saveUser")
+    public String saveUser(@Valid @ModelAttribute("user") User user, Errors errors) {
         if(errors.hasErrors()){
-            log.error("Register user form validation failed due to: " +errors.toString());
-            return "register.html";
+            return register;
         }
-        registerService.saveUserRegister(user);
-        return "redirect:/register";
+        boolean isSaved = registerService.saveUserRegister(user);
+        if(isSaved) {
+            return "redirect:/login?register=true";
+        }else{
+            return register;
+        }
     }
 }
