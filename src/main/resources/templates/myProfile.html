@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dom tchotchoro - Ecommerce</title>
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link th:href="@{/assets/css/style-starter.css}" rel="stylesheet"/>
+</head>
+<body>
+    <div th:replace="~{header :: header}">...</div>
+
+    <main>
+        <section class="services-w3l-block py-5" id="features">
+            <div class="container py-md-5 py-4">
+                <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+                    <p class="text-uppercase">Best Features</p>
+                    <h3 class="title-style">Achieve Your Goals With Eazy School</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-md-0 mt-4">
+                        <div class="icon-box icon-box-clr-2">
+                            <div class="icon"><i class="fa-solid fa-user"></i></div>
+                            <h4 class="title"><a th:href="@{/editProfile}"> Bem vindo, <span th:text="${username}"></span><i class="fa-solid fa-gear"></i></a></h4>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span th:text="${email}"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-lg-0 mt-4">
+                        <div class="icon-box icon-box-clr-3">
+                            <div class="icon"><i class="fa-solid fa-cart-shopping"></i></i></div>
+                            <h4 class="title"><a>Meus pedidos</a></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-lg-0 mt-4">
+                        <div class="icon-box icon-box-clr-3">
+                            <div class="icon"><i class="fa-solid fa-message"></i></i></div>
+                            <h4 class="title"><a th:href="@{/contact}">Sugestões</a></h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-lg-0 mt-4">
+                        <div class="icon-box icon-box-clr-4">
+                            <div class="icon"><i class="fas fa-university"></i></div>
+                            <h4 class="title"><a>(Pensar)</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- Js scripts -->
+<script src="assets/js/app.js"></script>
+<!-- //Js scripts -->
+</body>
+</html>

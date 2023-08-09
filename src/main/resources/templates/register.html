@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dom tchotchoro - Ecommerce</title>
-  <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <!-- Template CSS Style link -->
-  <link rel="stylesheet" href="/assets/css/style-starter.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dom tchotchoro - Ecommerce</title>
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="/assets/css/style-starter.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body>
     <div th:replace="~{header :: header}">...</div>
@@ -35,7 +34,7 @@
               <li class="alert alert-danger" role="alert"
                   th:each="error : ${#fields.errors('user.*')}" th:text="${error}" />
             </ul>
-            <form th:action="@{/saveUser}" method="post" class="signin-form" th:object="${user}">
+            <form th:action="@{/public/saveUser}" method="post" class="signin-form" th:object="${user}">
               <div class="input-grids">
                 <div class="row">
                   <div class="col-sm-6">
@@ -45,7 +44,7 @@
                     <input type="email" th:field="*{email}" id="email" placeholder="E-mail*" class="contact-input" />
                   </div>
                 <div class="col-sm-6">
-                    <input type="text" th:field="*{mobileNum}" id="mobileNum" placeholder="Telefone celular*" class="contact-input" />
+                    <input type="text" th:field="*{mobileNumber}" id="mobileNum" placeholder="Telefone celular*" class="contact-input" />
                 </div>
                 <div class="col-sm-6">
                     <input type="text" id="cpf" th:field="*{cpf}" placeholder="Cpf*" class="contact-input" />

@@ -9,8 +9,8 @@
     <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Template CSS Style link -->
-    <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/style-starter.css">
+    <link th:href="@{/assets/css/header.css}" rel="stylesheet"/>
+    <link th:href="@{/assets/css/style-starter.css}" rel="stylesheet"/>
 </head>
 <body>
     <!-- header -->
@@ -45,6 +45,12 @@
                             </span>
                             <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <a th:href="@{/dashboard}" class="nav-link">Dashboard</a>
+                            </li>
+                            <li class="nav-item" sec:authorize="isAuthenticated()">
+                                <a th:href="@{/myProfile}" class="nav-link">Minha conta</a>
+                            </li>
+                            <li class="nav-item" sec:authorize="isAuthenticated()">
+                                <h3 th:text="${username}"></h3>
                             </li>
                             <li class="nav-item" sec:authorize="isAuthenticated()">
                                 <a th:href="@{/logout}" class="nav-link">Logout</a>

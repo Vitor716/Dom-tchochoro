@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -40,7 +41,7 @@
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </div>
                         <div class="col-md-8 login-center text-start">
-                            <button class="btn btn-style btn-style-3 text-left" type="submit">Log In</button>
+                            <button class="btn btn-style btn-style-3 text-left">Log In</button>
                             <a class="new-user text-right" th:href="@{/public/register}">Novo usuário ?</a>
                         </div>
                     </form>

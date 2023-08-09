@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dom tchotchoro - Ecommerce</title>
+  <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Template CSS Style link -->
+  <link rel="stylesheet" href="/assets/css/style-starter.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+
+</head>
+<body>
+  <div th:replace="~{sidebar :: sidebar}">...</div>
+
+  <section class="w3l-contact py-5" id="contact">
+    <div class="search-bar rounded">
+      <input type="search" class="search-input" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+      <span class="search-button border-0" id="search-addon">
+           <button type="submit" class="search-button">
+             <i class="fas fa-search"></i>
+          </button>
+      </span>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-7">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fa-solid fa-plus"></i>
+          Adicionar novo funcionio
+        </button>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Adicionar usuário</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form th:action="@{/saveAdm}" method="post" class="signin-form" th:object="${user}">
+            <div class="input-grids">
+              <div class="row login-block">
+                <div class="col-sm-6">
+                  <input type="text" th:field="*{name}" id="name" placeholder="Nome completo*" class="contact-input" />
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" th:field="*{email}" id="email" placeholder="E-mail*" class="contact-input" />
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" th:field="*{mobileNumber}" id="mobileNum" placeholder="Telefone celular*" class="contact-input" />
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" id="cpf" th:field="*{cpf}" placeholder="Cpf*" class="contact-input" />
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" th:field="*{password}" id="password" placeholder="Senha*" class="contact-input" />
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" th:field="*{retypePassword}" id="retypePassword" placeholder="Confirme sua senha*" class="contact-input" />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button class="btn btn-style btn-style-3">Criar conta</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <main>
+    <section class="services-w3l-block py-5" id="features">
+      <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+          <p class="text-uppercase">Best Features</p>
+          <h3 class="title-style">Achieve Your Goals With Eazy School</h3>
+        </div>
+        <div class="row">
+<!--          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mt-md-0 mt-4">-->
+<!--            <div class="icon-box icon-box-clr-2">-->
+<!--              <div class="icon"><i class="fa-solid fa-user"></i></div>-->
+<!--              <h4 class="title"><a> Bem vindo, <span th:text="${username}"></span><i class="fa-solid fa-gear"></i></a></h4>-->
+<!--              <i class="fa-solid fa-envelope"></i>-->
+<!--              <span th:text="${email}"></span>-->
+<!--            </div>-->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="adm : ${listAdms}">
+      <td th:text="${adm.name}"></td>
+      <td th:text="${adm.email}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+<!-- Js scripts -->
+<script src="assets/js/app.js"></script>
+<!-- //Js scripts -->
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+</script>
+</body>
+</html>
