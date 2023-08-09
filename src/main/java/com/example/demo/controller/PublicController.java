@@ -26,6 +26,8 @@ public class PublicController {
         return register;
     }
 
+
+
     @RequestMapping(value ="/saveUser",method = { RequestMethod.POST})
     public String saveUser(@Valid @ModelAttribute("user") User user, Errors errors) {
         if(errors.hasErrors()){

@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -31,6 +30,6 @@ public class Address extends BaseEntity{
     private String state;
 
     @NotBlank(message="Zip Code must not be blank")
-    @Pattern(regexp="(^$|[0-9]{5})",message = "Zip Code must be 5 digits")
+//    @Pattern(regexp="(^$|[0-9]{5})",message = "Zip Code must be 5 digits")
     private String zipCode;
 }
